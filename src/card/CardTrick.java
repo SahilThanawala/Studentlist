@@ -19,14 +19,31 @@ public class CardTrick {
         for (int i=0; i<magicHand.length; i++)
         {
             Card c = new Card();
-            //c.setValue(insert call to random number generator here)
-            //c.setSuit(Card.SUITS[insert call to random number between 0-3 here])
+            c.setValue((int)(Math.random()*13)+1);
+            c.setSuit(Card.SUITS[(int)(Math.random()*4)]);
+            
+            magicHand[i] = c;
         }
         
-        //insert code to ask the user for Card value and suit, create their card
-        // and search magicHand here
-        //Then report the result here
-        // add one luckcard hard code 2,clubs
+        Card luckyCard = new Card();
+        luckyCard.setValue(2);
+        luckyCard.setSuit("Clubs");
+
+        boolean found = false;
+
+        for (int i = 0; i < magicHand.length; i++) {
+            if (magicHand[i].getValue() == luckyCard.getValue()
+                && magicHand[i].getSuit().equals(luckyCard.getSuit())) {
+            found = true;
+            }
+        }
+
+        if (found) {
+            System.out.println("You win! Lucky card was found.");
+        } else {
+            System.out.println("You lose. Lucky card was not found.");
+        }
+        
     }
     
 }
