@@ -26,8 +26,8 @@ public class CardTrick {
         }
         
         Card luckyCard = new Card();
-        luckyCard.setValue(2);
-        luckyCard.setSuit("Clubs");
+        luckyCard.setValue(7);
+        luckyCard.setSuit("Hearts");
 
         boolean found = false;
 
