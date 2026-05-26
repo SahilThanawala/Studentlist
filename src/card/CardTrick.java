@@ -4,8 +4,6 @@
  */
 package card;
 
-import java.util.Scanner;
-
 /**
  * A class that fills a magic hand of 7 cards with random Card Objects
  * and then asks the user to pick a card and searches the array of cards
@@ -30,32 +28,23 @@ public class CardTrick {
             
             magicHand[i] = c;
         }
-        
-        Scanner input = new Scanner(System.in);
-
-        Card userCard = new Card();
-
-        System.out.println("Enter card value (1-13):");
-        userCard.setValue(input.nextInt());
-
-        System.out.println("Enter suit (Hearts, Diamonds, Spades, Clubs):");
-        userCard.setSuit(input.next());
-
+        Card luckyCard = new Card();
+        luckyCard.setValue(7);
+        luckyCard.setSuit("Hearts");
         boolean found = false;
 
         for (int i = 0; i < magicHand.length; i++) {
             
-            if (magicHand[i].getValue() == userCard.getValue()
-                    && magicHand[i].getSuit().equalsIgnoreCase(userCard.getSuit())) {
-                
+            if (magicHand[i].getValue() == luckyCard.getValue()
+                    && magicHand[i].getSuit().equalsIgnoreCase(luckyCard.getSuit())) {
                 found = true;
             }
         }
 
         if (found) {
-            System.out.println("You win! Your card was found.");
+            System.out.println("You win! Lucky card was found.");
         } else {
-            System.out.println("You lose. Your card was not found.");
+            System.out.println("You lose. Lucky card was not found.");
         }
     }
 }
